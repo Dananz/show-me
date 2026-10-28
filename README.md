@@ -8,17 +8,30 @@ A Claude Code skill that answers visually inside [T3 Code](https://github.com/pi
 
 ## Install
 
-```bash
-git clone https://github.com/Dananz/show-me ~/.claude/skills/show-me
+In Claude Code (2.1.275 or later):
+
+```
+/plugin install show-me --marketplace Dananz/show-me
+```
+
+Older versions, two steps:
+
+```
+/plugin marketplace add Dananz/show-me
+/plugin install show-me@dananz
 ```
 
 Then in a T3 Code thread:
 
 ```
-/show-me
+/show-me:show-me
 ```
 
 It stays on for the session. Say `stop visual mode` to turn it off.
+
+### Updates
+
+Every push to `main` is a new version. To get updates automatically, open `/plugin`, go to **Marketplaces**, pick `dananz` and choose **Enable auto-update**. Otherwise run `/plugin marketplace update dananz`.
 
 ## What it does
 
@@ -33,8 +46,9 @@ Inspired by the [i-have-adhd](https://github.com/ayghri/i-have-adhd) skill for a
 
 ## Files
 
-- `SKILL.md`: the rules.
-- `template.html`: a starter render with cards, a linear flow, a progress row and a Mermaid chart.
+- `plugins/show-me/skills/show-me/SKILL.md`: the rules.
+- `plugins/show-me/skills/show-me/template.html`: a starter render with cards, a linear flow, a progress row and a Mermaid chart.
+- `.claude-plugin/marketplace.json`: the marketplace that lists the plugin.
 
 ## Requirements
 

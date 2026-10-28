@@ -1,0 +1,12 @@
+{
+  "name": "dananz",
+  "description": "Claude Code plugins by Dananz",
+  "owner": { "name": "Dananz" },
+  "plugins": [
+    {
+      "name": "show-me",
+      "source": "./plugins/show-me",
+      "description": "Visual answers in T3 Code: inline HTML renders with icons, color meaning and flowcharts"
+    }
+  ]
+}

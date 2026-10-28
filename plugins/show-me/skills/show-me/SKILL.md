@@ -1,6 +1,6 @@
 ---
 name: show-me
-description: Visual mode for T3 Code. Answers become short inline HTML renders (html_preview + html_render) with Phosphor icons, clear color meaning, card sections and flowcharts when there is a flow. Code never goes inside HTML: renders stack above the reply, and code goes in the final reply as fenced blocks linked to the renders by numbered badges. Use on /show-me, "visual mode", "show me", "draw it". Stays on for the whole session until "stop visual mode" or "normal mode".
+description: Visual mode for T3 Code. Answers become short inline HTML renders (html_preview + html_render) with Phosphor icons, clear color meaning, card sections and flowcharts when there is a flow. Code never goes inside HTML: renders stack above the reply, and code goes in the final reply as fenced blocks linked to the renders by numbered badges. Use on /show-me (or /show-me:show-me as a plugin), "visual mode", "show me", "draw it". Stays on for the whole session until "stop visual mode" or "normal mode".
 ---
 
 # show-me

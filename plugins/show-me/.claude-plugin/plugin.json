@@ -1,0 +1,7 @@
+{
+  "name": "show-me",
+  "description": "Visual answers in T3 Code: inline HTML renders with icons, color meaning and flowcharts",
+  "author": { "name": "Dananz" },
+  "homepage": "https://github.com/Dananz/show-me",
+  "license": "MIT"
+}
