@@ -135,9 +135,20 @@ A red card with three rows: **Cause**, **Fix**, **Where** (`file:line`). No "uh 
 
 "What are my options" gets 2 to 4 option cards side by side. Recommended first, with a `--success` "Recommended" tag. Each one has a single pro row and a single con row.
 
-### 12. Asks look like asks
+### 12. Questions go through the ask tool, never a card
 
-If the reader must decide or do something, it's its own card with a `ph-question` or `ph-hand-pointing` icon, phrased as a question with the choices spelled out ("Run the 4 manual checks: you, or me with your OK?"). Never tuck a decision into a warning card's subtitle.
+If the reader must decide something, always ask with the agent's question tool: `AskUserQuestion` in Claude Code, `request_user_input` in Codex, the equivalent elsewhere. Never render a question card and wait for a typed answer. Only if the agent has no such tool, ask in plain text with the choices numbered.
+
+The dialog may be all the reader sees while it is open, so each question carries its full detail:
+
+- The question states the context in plain words: what this is about, what you found, and why it needs their call. Two or three sentences are fine.
+- Every option gets a description with what it means and what happens if chosen. Recommended option first, marked "(Recommended)", with the reason in its description.
+- Internal names follow rule 6: the plain meaning first, then the name (`ID_UPLOAD`, a file path, a date).
+- Several open questions go in one call (up to 4), not one card listing "a." and "b.".
+
+A render before the ask can still show the situation (what was found, a flow), but the decision itself lives in the tool. Never tuck a decision into a warning card's subtitle.
+
+For something the reader must *do* (not decide), like "run this command", use a card with `ph-hand-pointing` and the action spelled out.
 
 ### 13. Specific time estimates
 
@@ -191,3 +202,4 @@ Length follows the content. One or two renders is typical. If an answer needs mo
 5. Is there an internal name, abbreviation or bare number with no plain-language meaning next to it? Add the meaning.
 6. Is there text before or after a render that restates it? Delete it.
 7. Does the last line name one concrete next action?
+8. Is there a question inside a render? Move it to the ask tool, with full context in the question and a description on every option.
