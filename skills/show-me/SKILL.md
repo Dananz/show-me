@@ -27,6 +27,7 @@ Turn them off only on "stop visual mode" or "normal mode". Confirm that in one l
 The renders use two tools from T3 Code's MCP server (`t3-code`): `html_preview` and `html_render`. Any agent T3 Code runs (Claude, Codex, Antigravity, Cursor, OpenCode, Pi...) gets them. How to reach them depends on the agent:
 
 - **Claude Code:** they are deferred. Load them once per session with `ToolSearch`, query `select:mcp__t3-code__html_preview,mcp__t3-code__html_render`.
+- **Codex:** they are loaded already, as `mcp__t3_code__html_preview` and `mcp__t3_code__html_render`.
 - **Other agents:** call them from the `t3-code` MCP server directly. If they are not visible, search your tool list for `html_render`.
 
 1. Write the HTML. Start from `template.html` next to this file.
