@@ -1,0 +1,69 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<!-- Mermaid: keep only when the render has a branching flowchart -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+</head><body>
+<div class="flex flex-col gap-3">
+
+  <!-- 1. Status row: the result, in color -->
+  <div class="flex items-center gap-2 text-[15px] font-semibold">
+    <i class="ph-fill ph-check-circle text-xl text-[var(--success)]"></i> Result in a few words
+  </div>
+
+  <!-- 2. Cards: icon, 1-3 word label, one short line -->
+  <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
+    <div class="rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] p-4">
+      <i class="ph ph-lightning text-2xl text-[var(--chart-1)]"></i>
+      <div class="mt-2 text-sm font-medium">Label</div>
+      <div class="text-xs text-[var(--muted-foreground)]">One short line</div>
+    </div>
+    <div class="rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] p-4">
+      <i class="ph ph-warning text-2xl text-[var(--warning)]"></i>
+      <div class="mt-2 text-sm font-medium">Tradeoff</div>
+      <div class="text-xs text-[var(--muted-foreground)]">One short line</div>
+    </div>
+    <div class="rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] p-4">
+      <i class="ph ph-x-circle text-2xl text-[var(--destructive)]"></i>
+      <div class="mt-2 text-sm font-medium">Risk</div>
+      <div class="text-xs text-[var(--muted-foreground)]">One short line</div>
+    </div>
+  </div>
+
+  <!-- 3. Linear flow: step cards + arrows (no library) -->
+  <div class="flex items-center gap-2 flex-wrap text-sm">
+    <div class="rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] px-3 py-2 flex items-center gap-2"><i class="ph ph-globe text-[var(--chart-2)]"></i>Request</div>
+    <i class="ph ph-arrow-right text-[var(--muted-foreground)]"></i>
+    <div class="rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] px-3 py-2 flex items-center gap-2"><i class="ph ph-shield-check text-[var(--chart-3)]"></i>Auth</div>
+    <i class="ph ph-arrow-right text-[var(--muted-foreground)]"></i>
+    <div class="rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] px-3 py-2 flex items-center gap-2"><i class="ph ph-database text-[var(--chart-4)]"></i>DB</div>
+  </div>
+
+  <!-- 4. Progress row: done / current / next -->
+  <div class="flex items-center gap-2 text-xs">
+    <span class="flex items-center gap-1 text-[var(--success)]"><i class="ph-fill ph-check-circle"></i>Schema</span>
+    <span class="h-px w-4 bg-[var(--border)]"></span>
+    <span class="flex items-center gap-1 font-medium text-[var(--primary)]"><i class="ph ph-circle-notch"></i>Backfill</span>
+    <span class="h-px w-4 bg-[var(--border)]"></span>
+    <span class="flex items-center gap-1 text-[var(--muted-foreground)]"><i class="ph ph-circle"></i>Deploy</span>
+  </div>
+
+  <!-- 5. Branching flow: Mermaid themed from T3 variables -->
+  <pre class="mermaid">flowchart LR
+  A[Request] --> B{Token ok?}
+  B -- yes --> C[Handler]
+  B -- no --> D[/login]</pre>
+
+</div>
+<script>
+if (window.mermaid) {
+  const v = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: {
+    primaryColor: v('--card'), primaryTextColor: v('--foreground'), primaryBorderColor: v('--border'),
+    lineColor: v('--muted-foreground'), edgeLabelBackground: v('--background'),
+    fontFamily: v('--font-sans'), fontSize: '13px' } });
+}
+</script>
+</body></html>
