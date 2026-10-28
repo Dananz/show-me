@@ -1,0 +1,9 @@
+{
+  "name": "show-me",
+  "version": "0.1.0",
+  "description": "Visual answers in T3 Code: inline HTML renders with icons, color meaning and flowcharts",
+  "license": "MIT",
+  "homepage": "https://github.com/Dananz/show-me",
+  "skills": "./skills/",
+  "interface": { "displayName": "show-me", "shortDescription": "Visual answers in T3 Code" }
+}

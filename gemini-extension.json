@@ -1,0 +1,6 @@
+{
+  "name": "show-me",
+  "version": "0.1.0",
+  "description": "Visual answers in T3 Code: inline HTML renders with icons, color meaning and flowcharts",
+  "contextFileName": "GEMINI.md"
+}

@@ -8,7 +8,7 @@ An agent skill that answers visually inside [T3 Code](https://github.com/pingdot
 
 ## Install
 
-Works in any agent T3 Code runs. Pick yours:
+Pick your agent. Claude Code, Codex, Antigravity and the `npx skills` route are tested; the rest follow each agent's documented format.
 
 <details open>
 <summary><strong>Claude Code</strong></summary>
@@ -56,6 +56,75 @@ Updates: `npx skills update -g`. Without the CLI, copy `skills/show-me` into the
 
 </details>
 
+<details>
+<summary><strong>Grok</strong> (untested)</summary>
+
+```bash
+grok plugin install Dananz/show-me --trust
+grok plugin enable show-me
+```
+
+</details>
+
+<details>
+<summary><strong>Gemini CLI</strong> (untested)</summary>
+
+```bash
+gemini extensions install https://github.com/Dananz/show-me
+```
+
+The extension loads `GEMINI.md`, so visual mode is on in every session.
+
+</details>
+
+<details>
+<summary><strong>Qwen Code</strong> (untested)</summary>
+
+```bash
+qwen extensions install Dananz/show-me
+```
+
+</details>
+
+<details>
+<summary><strong>Kimi Code</strong> (untested)</summary>
+
+In a session: `/plugins` → **Custom** → paste `https://github.com/Dananz/show-me` → **Trust and install**. Run with `/skill:show-me`.
+
+</details>
+
+<details>
+<summary><strong>Pi / Oh My Pi</strong> (untested)</summary>
+
+```bash
+pi install https://github.com/Dananz/show-me
+```
+
+```bash
+omp plugin marketplace add Dananz/show-me
+omp plugin install --scope user show-me@show-me
+```
+
+</details>
+
+<details>
+<summary><strong>Hermes</strong> (untested)</summary>
+
+```bash
+hermes skills install Dananz/show-me/skills/show-me
+```
+
+</details>
+
+<details>
+<summary><strong>GitHub Copilot</strong></summary>
+
+```bash
+npx skills add Dananz/show-me -a github-copilot -g
+```
+
+</details>
+
 Then ask for something and say `show me`. It stays on for the session. Say `stop visual mode` to turn it off.
 
 ## What it does
@@ -73,7 +142,7 @@ Inspired by the [i-have-adhd](https://github.com/ayghri/i-have-adhd) skill for a
 
 - `skills/show-me/SKILL.md`: the rules.
 - `skills/show-me/template.html`: a starter render with cards, a linear flow, a progress row and a Mermaid chart.
-- `plugin.json` (Codex, Antigravity), `.claude-plugin/` (Claude Code), `.agents/plugins/marketplace.json` (Codex marketplace).
+- Per-agent manifests: `.claude-plugin/` (Claude Code, Grok, OMP), `plugin.json` (Codex, Antigravity), `.agents/plugins/marketplace.json` (Codex marketplace), `gemini-extension.json` + `GEMINI.md`, `qwen-extension.json`, `kimi.plugin.json`, `package.json` (Pi).
 
 ## Requirements
 
