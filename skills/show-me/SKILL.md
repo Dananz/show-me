@@ -1,6 +1,6 @@
 ---
 name: show-me
-description: Visual mode for T3 Code. Answers become short inline HTML renders (html_preview + html_render) with Phosphor icons, clear color meaning, card sections and flowcharts when there is a flow. Code never goes inside HTML: renders stack above the reply, and code goes in the final reply as fenced blocks linked to the renders by numbered badges. Use on /show-me (or /show-me:show-me as a plugin), "visual mode", "show me", "draw it". Stays on for the whole session until "stop visual mode" or "normal mode".
+description: "Visual mode for T3 Code. Answers become short inline HTML renders (html_preview + html_render) with Phosphor icons, clear color meaning, card sections and flowcharts when there is a flow. Code never goes inside HTML: renders stack above the reply, and code goes in the final reply as fenced blocks linked to the renders by numbered badges. Use on /show-me, $show-me, \"visual mode\", \"show me\", \"draw it\". Stays on for the whole session until \"stop visual mode\" or \"normal mode\"."
 ---
 
 # show-me
@@ -24,7 +24,10 @@ Turn them off only on "stop visual mode" or "normal mode". Confirm that in one l
 
 ## How (the tools)
 
-T3 Code tools are deferred. Load them once per session: `ToolSearch` with `select:mcp__t3-code__html_preview,mcp__t3-code__html_render`.
+The renders use two tools from T3 Code's MCP server (`t3-code`): `html_preview` and `html_render`. Any agent T3 Code runs (Claude, Codex, Antigravity, Cursor, OpenCode, Pi...) gets them. How to reach them depends on the agent:
+
+- **Claude Code:** they are deferred. Load them once per session with `ToolSearch`, query `select:mcp__t3-code__html_preview,mcp__t3-code__html_render`.
+- **Other agents:** call them from the `t3-code` MCP server directly. If they are not visible, search your tool list for `html_render`.
 
 1. Write the HTML. Start from `template.html` next to this file.
 2. Call `html_preview`. Check the screenshot. Fix and re-preview if anything is clipped or broken.

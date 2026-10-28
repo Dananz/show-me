@@ -1,6 +1,6 @@
 # show-me
 
-A Claude Code skill that answers visually inside [T3 Code](https://github.com/pingdotgg/t3code). Replies become small inline HTML renders: Phosphor icons, colors that always mean the same thing, card sections, and flowcharts when something flows. Code never goes inside the HTML. It stays in normal fenced blocks, linked to the render by numbered badges.
+An agent skill that answers visually inside [T3 Code](https://github.com/pingdotgg/t3code). Replies become small inline HTML renders: Phosphor icons, colors that always mean the same thing, card sections, and flowcharts when something flows. Code never goes inside the HTML. It stays in normal fenced blocks, linked to the render by numbered badges.
 
 ![A show-me reply: progress, a flowchart, two cards and a question](assets/demo.png)
 
@@ -8,30 +8,55 @@ A Claude Code skill that answers visually inside [T3 Code](https://github.com/pi
 
 ## Install
 
-In Claude Code (2.1.275 or later):
+Works in any agent T3 Code runs. Pick yours:
 
-```
-/plugin install show-me --marketplace Dananz/show-me
-```
-
-Older versions, two steps:
+<details open>
+<summary><strong>Claude Code</strong></summary>
 
 ```
 /plugin marketplace add Dananz/show-me
-/plugin install show-me@dananz
+/plugin install show-me@show-me
 ```
 
-Then in a T3 Code thread:
+Run with `/show-me:show-me`. Updates: `/plugin` → Marketplaces → `show-me` → **Enable auto-update**, or `/plugin marketplace update show-me`.
 
+</details>
+
+<details>
+<summary><strong>Codex</strong></summary>
+
+```bash
+codex plugin marketplace add Dananz/show-me --ref main
+codex plugin add show-me@show-me
 ```
-/show-me:show-me
+
+Run with `$show-me`. Updates: `codex plugin marketplace upgrade show-me`, then remove and add the plugin again.
+
+</details>
+
+<details>
+<summary><strong>Antigravity (agy)</strong></summary>
+
+```bash
+agy plugin install https://github.com/Dananz/show-me
 ```
 
-It stays on for the session. Say `stop visual mode` to turn it off.
+Updates: `agy plugin uninstall show-me`, then install again.
 
-### Updates
+</details>
 
-Every push to `main` is a new version. To get updates automatically, open `/plugin`, go to **Marketplaces**, pick `dananz` and choose **Enable auto-update**. Otherwise run `/plugin marketplace update dananz`.
+<details>
+<summary><strong>Cursor, OpenCode, Pi, and any agent-skills harness</strong></summary>
+
+```bash
+npx skills add Dananz/show-me -g
+```
+
+Updates: `npx skills update -g`. Without the CLI, copy `skills/show-me` into the folder your agent scans for skills.
+
+</details>
+
+Then ask for something and say `show me`. It stays on for the session. Say `stop visual mode` to turn it off.
 
 ## What it does
 
@@ -46,9 +71,9 @@ Inspired by the [i-have-adhd](https://github.com/ayghri/i-have-adhd) skill for a
 
 ## Files
 
-- `plugins/show-me/skills/show-me/SKILL.md`: the rules.
-- `plugins/show-me/skills/show-me/template.html`: a starter render with cards, a linear flow, a progress row and a Mermaid chart.
-- `.claude-plugin/marketplace.json`: the marketplace that lists the plugin.
+- `skills/show-me/SKILL.md`: the rules.
+- `skills/show-me/template.html`: a starter render with cards, a linear flow, a progress row and a Mermaid chart.
+- `plugin.json` (Codex, Antigravity), `.claude-plugin/` (Claude Code), `.agents/plugins/marketplace.json` (Codex marketplace).
 
 ## Requirements
 

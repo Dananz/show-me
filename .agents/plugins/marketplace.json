@@ -1,0 +1,12 @@
+{
+  "name": "show-me",
+  "interface": { "displayName": "show-me" },
+  "plugins": [
+    {
+      "name": "show-me",
+      "source": { "source": "url", "url": "https://github.com/Dananz/show-me.git", "ref": "main" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
+    }
+  ]
+}
